@@ -34,16 +34,16 @@ def getAllItem(dbio,itemType):
         r.append(itemType(**record["content"]))
     return r
 
-from obj_prototype import obj_prototype
+
 
 def StoreAllItem(dbio, itemList):
 
-    if not isinstance(dbio, stdDBIO):
+    if not dbio.setCollection:
         print("please provide a stdDBIO object")
         return
 
     for item in itemList:
-        if isinstance(item,obj_prototype) and len(item)>0:
+        if item.collection and len(item)>0:
             dbio.setDB(item.dbname)
             dbio.setCollection(item.collection)
             dbio.writeObj(item())
