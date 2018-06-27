@@ -23,7 +23,6 @@ class TCT(ZHU):
             self.obj["time"] = time
 
 
-
 if __name__ == "__main__":
 
     c = {'title': 'test4', 'content': 'test16', 'time': 1514563200}

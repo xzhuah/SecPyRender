@@ -72,30 +72,30 @@ class webpageManager:
 
         root.addChild(myObj)
 
+
         return root.dumpToFile("index.html")
 
     def demo(self):
         root = HtmlPage()
 
-        obj1 = html_obj("here is some text")
+        # obj1 = html_obj("here is some text")
 
-        obj2 = ZHU(framework="<h1>{surname}</h1><div>{first_name}</div>",surname = "ZHU", first_name = "Xinyu",container="div")
+        obj = {"surname" : "ZHU", "first_name" : "Xinyu"}
 
-        obj2.addChild(obj1)
+        myobj = TCT(title="I am title", content="hello TCT", time="2017/08/12")
 
-        obj2.setFramework("<a href='baidu.com'>{surname}</a><div>{first_name}</div><div>{first_name}</div>")
+        obj2 = ZHU(Class="ZHU_container",**obj,container="div")
+        test = obj2.setFramework("<h1>Hello</h1><div>{first_name}</div>",mode="match")
+        myobj.addChild(obj2)
 
-        obj2.setClass("ZHU_container")
-
-        obj1.addStylesheet(".container_default {color: #0000ff;height: 60px;}")
-
-        obj3 = ZHU(framework="<ul><li>{ob1}</li><li>{ob2}</li></ul>",ob1=obj1.__repr__(),ob2=obj2.__repr__())
-        obj3.addChild(obj1)
-        obj3.addChild(obj2)
-        root.addChild(obj3)
+        root.addChild(obj2)
+        root.addChild(myobj)
+        root.addStylesheetFile("ZHUCSS.css")
 
 
-        obj3.addStylesheetFile("ZHUCSS.css")
+
+
+
 
 
 
