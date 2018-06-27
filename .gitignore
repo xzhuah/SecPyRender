@@ -50,7 +50,7 @@ coverage.xml
 # Translations
 *.mo
 *.pot
-*.pkl
+
 
 # Django stuff:
 *.log
@@ -103,3 +103,8 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+
+*.pkl
+.pkl
+.idea/
