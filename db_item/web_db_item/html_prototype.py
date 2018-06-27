@@ -76,7 +76,7 @@ class html_obj(obj_prototype):
         return framework
 
     def setClass(self, newClass):
-        self.obj["class"] = newClass
+        self.Class = newClass
     def setContainer(self,newContainer):
         self.Container = newContainer
     def setFramework(self, newFramework,mode="contains"):
