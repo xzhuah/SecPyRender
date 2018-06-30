@@ -21,11 +21,19 @@ class HtmlPage(html_obj):
         style,stylesheets = self.getAllStylesheet()
 
 
+
+
         # the format method used in python does not support inline css
         # so everytime, we will append a style sheet and link it
 
         with open(basecssfile,"w") as f:
             f.write(style)
+
+        bufferList = self.head.childElementList
+        self.head.childElementList = []
+        for item in bufferList:
+            if "rel" not in item.attr or item.attr["rel"]!="stylesheet":
+                self.addHead(item)
         stylesheet = html_obj(Class="", container="link", rel="stylesheet", type="text/css", href=basecssfile)
         self.addHead(stylesheet)
         #self.addHead(styleObj)

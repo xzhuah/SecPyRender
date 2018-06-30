@@ -85,12 +85,19 @@ class webpageManager:
         myobj = TCT(title="I am title", content="hello TCT", time="2017/08/12")
 
         obj2 = ZHU(Class="ZHU_container",**obj,container="div")
-        test = obj2.setFramework("<h1>Hello</h1><div>{first_name}</div>",mode="match")
+        test = obj2.setFramework("<h1>Hello</h1><div>{first_name}</div>")
         myobj.addChild(obj2)
 
-        root.addChild(obj2)
+
         root.addChild(myobj)
         root.addStylesheetFile("ZHUCSS.css")
+        root.dumpToFile("index2.html")
+        return root.dumpToFile("index.html")
+
+    def myWebsite(self):
+        root = HtmlPage()
+
+        obj = {}
 
 
 

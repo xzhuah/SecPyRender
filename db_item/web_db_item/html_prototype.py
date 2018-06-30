@@ -107,15 +107,16 @@ class html_obj(obj_prototype):
 
     def getAllStylesheet(self):
         result = ""
-        resultList = []
+        resultList = set()
         result += self.style+"\n"
-        resultList+=self.stylelist
+        resultList = resultList.union(self.stylelist)
+
         for ele in self.childElementList:
             if ele.class_id == "html_obj":
                 childList, childFiles = ele.getAllStylesheet()
                 result+=childList+"\n"
-                resultList+=childFiles
-        return result,resultList
+                resultList = resultList.union(childFiles)
+        return result,list(resultList)
 
 
 def testCompatiblity(framework, HtmlObject,mode="contains"):

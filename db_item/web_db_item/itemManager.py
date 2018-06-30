@@ -1,6 +1,3 @@
-from stdDBIO import stdDBIO
-
-from user_item import item_store_rule
 
 def getAllItem_seq(dbio,itemType):
     if not dbio.setCollection:
